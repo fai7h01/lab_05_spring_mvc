@@ -17,10 +17,7 @@ import java.util.UUID;
 public class CartController {
 
     @RequestMapping("/cart-list")
-    public String cartList(ProductServiceImpl productService, CartServiceImpl cartService, Model model){
-
-        productService.initialiseProductList();
-        cartService.initialiseCartList();
+    public String cartList(CartServiceImpl cartService, Model model){
 
         List<Cart> cartList = cartService.retrieveCartList();
 
@@ -30,11 +27,10 @@ public class CartController {
     }
 
     @RequestMapping("/cart-list/{cartId}")
-    public String cartDetails(@PathVariable UUID cartId, CartServiceImpl cartService, ProductServiceImpl productService, Model model){
+    public String cartDetails(@PathVariable UUID cartId, CartServiceImpl cartService, Model model){
 
-        productService.initialiseProductList();
-        cartService.initialiseCartList();
         List<CartItem> cartItemList = cartService.retrieveCartDetail(cartId);
+
         model.addAttribute("cartItemList",cartItemList);
 
         return "cart/cart-detail";

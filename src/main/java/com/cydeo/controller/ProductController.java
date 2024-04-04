@@ -15,7 +15,6 @@ public class ProductController {
     @RequestMapping("/search-product/{productName}")
     public String searchProduct(@PathVariable String productName, ProductServiceImpl productService, Model model){
 
-        productService.initialiseProductList();
         List<Product> productList = productService.searchProduct(productName);
         model.addAttribute("productList",productList);
 
