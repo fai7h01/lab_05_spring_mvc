@@ -65,6 +65,7 @@ public class CartServiceImpl implements CartService {
         Cart cart1 = new Cart();
         cart1.setId(UUID.randomUUID());
         cart1.setCartItemList(cartItemList1);
+        System.out.println("cart1 id: " + cart1.getId());
 
         BigDecimal cart1TotalAmount = cartItemList1.stream()
                 .map(CartItem::getTotalAmount)
@@ -81,6 +82,7 @@ public class CartServiceImpl implements CartService {
         Cart cart2 = new Cart();
         cart2.setId(UUID.randomUUID());
         cart2.setCartItemList(cartItemList2);
+        System.out.println("cart2 id: " + cart2.getId());
 
         BigDecimal cart2TotalAmount = cartItemList2.stream()
                 .map(CartItem::getTotalAmount)
